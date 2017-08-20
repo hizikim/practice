@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title>Line Play</title>
+    <script src="../@lib/jquery-1.12.4.min.js"></script>
+    <script>
+	$(document).ready (function(){
+		
+		var exam = {
+			init : function(){
+				this.setElements();
+				this.arrFunc();
+				this.randomFunc();
+				this.initLayout();
+				this.bindEvents();
+			},
+			setElements : function(){
+				this.playWrap = $('.js-play-wrap').eq(0),
+				this.swiperContainer = this.playWrap.find('.swiper-container'),
+				this.swiperWrap = this.swiperContainer.find('ul'),
+				this.swiperSlide = this.swiperWrap.find('li'),
+				this.btnRandom = this.playWrap.find('button')
+			},
+			initLayout : function(){
+				this.swiperSlide.eq(this.randomN).show(); //초기 아바타 랜덤 노출
+				//console.log(this.randomN)
+			},
+			arrFunc : function(){ 
+				this.arr = []; // li갯수 만큼 배열 생성
+				for(i=0; i<this.swiperSlide.length; i++){
+					this.arr.push(i)
+				}
+			},
+			randomFunc : function(){
+				this.randomN = Math.floor(Math.random() * this.arr.length ); //배열길이 만큼의 랜덤수 생성 ****
+				this.curIdx = this.arr[this.randomN]; // 생성된 랜덤수 인덱스번호 의 값 (배열의 인덱스가 아닌 해당인덱스 안에 값을 가져옴)
+//				console.log(this.randomN)
+			},
+			loopFunc : function(){
+				if(this.oldIdx === this.curIdx){
+					this.randomFunc();//마지막 배열값과 현재 배열값 비교 하여 같으면 랜덤함수 다시 실행해 curIdx값 받아옴
+				}	
+			},
+			bindEvents : function(){
+				this.btnRandom.on('click', $.proxy(this.onClickFunc, this));
+			},
+			onClickFunc : function(){
+				
+				this.arr.splice(this.randomN, 1); //노출된 아바타 배열에서 삭제
+				this.oldIdx = this.curIdx;
+				this.swiperSlide.eq(this.oldIdx).hide();
+				this.randomFunc();
+				this.swiperSlide.eq(this.curIdx).show();
+				//console.log(this.arr,this.curIdx);
+				if(this.arr.length === 0){ //배열이 다 삭제되면 초기화(배열 새로 생성, 초기 아바타 랜덤 노출, curIdx값 생성)
+					this.arrFunc();
+					this.randomFunc();
+					this.initLayout();
+					this.loopFunc(); 
+					//console.log(this.curIdx);
+				}
+			//console.log(this.arr, this.oldIdx, this.curIdx);
+				
+			},
+			viewFunc : function(){
+				
+			}
+		}
+		exam.init();
+	});
+	</script>
+    <style>
+        *{margin:0;padding:0}
+        body{font-family:'나눔고딕';line-height:1.5;color:#555}
+        ul,li{list-style:none}
+        button{cursor:pointer}
+        button::-moz-focus-inner{padding:0;border:0}
+        .create_wrap{width:500px;margin:50px auto}
+        .swiper-container{overflow:hidden;width:500px;height:380px}
+        .swiper-container img{max-width:100%;vertical-align:top}
+        .swiper-wrapper{position:relative;height:100%;}
+        .swiper-wrapper .swiper-slide{position:absolute;left:0;top:0;display:none}
+        .btn_random{display:block;margin:20px auto 0;padding:15px 30px;border:2px solid #00ce23;border-radius:10px;background:none;font-family:inherit;font-weight:bold;font-size:20px;color:#00ce23}
+        .btn_random:after{display:inline-block;width:17px;height:15px;margin-top:-4px;margin-left:5px;background:url('img/ico.png') no-repeat;background-size:100% auto;vertical-align:middle;content:''}
+    </style>
+</head>
+<body>
+<div class="create_wrap js-play-wrap">
+    <div class="swiper-container">
+        <ul class="swiper-wrapper">
+        <li class="swiper-slide">
+            <span class="avatar_box">
+                <img src="img/avatar_01.jpg" alt="avatar image" class="img_avatar">
+            </span>
+        </li>
+        <li class="swiper-slide">
+            <span class="avatar_box">
+                <img src="img/avatar_02.jpg" alt="avatar image" class="img_avatar">
+            </span>
+        </li>
+        <li class="swiper-slide">
+            <span class="avatar_box">
+                <img src="img/avatar_03.jpg" alt="avatar image" class="img_avatar">
+            </span>
+        </li>
+        </ul>
+    </div>
+    <button type="button" class="btn_random"><span>다른 아바타 보기</span></button>
+</div>
+</body>
+</html>

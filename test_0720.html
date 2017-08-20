@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="all">
+<script src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+  // for (var a = 0 ; a < 10 ; a++){
+  //   console.log(a);
+  // };
+  // // 초기값 부분은 한번 쓰고 버려지는 곳 -> 처음에 읽어주니까 성능에 더 좋음
+  // for (var b = 0, bmax = 10 ; b < bmax ; b++)
+  // {
+  //   console.log(b);
+  // }
+  // var a2 = 0;
+  // for (; a2 < 10 ;a2++){
+
+  // }
+  // var b2 = 0;
+  // var bmax2 = 10;
+  // for (; b2 < bmax2 ;){
+  //   b2++;
+  // }
+
+  // 범위를 명확하게 지정하기 어려울때, 특정 조건을 만족할 때 까지 -> 성능이 별로 좋지 않음 
+  // ex) 중복이 되지 않을때까지
+  var whileVar = 0;
+  while (whileVar < 10){
+    console.log('as is');
+    console.log(whileVar);
+      if (whileVar > 5)
+          break;
+    console.log('to be');
+    console.log(whileVar);
+    whileVar++;
+  }
+  while (whileVar < 10){
+    whileVar++;
+    if (whileVar == 2 || whileVar == 5)
+      continue;
+  }
+
+</script>
+</head>
+<body>
+<pre>
+  과제 설명
+  for, while 이용해서 코드 출력
+
+  Q2. %연산자 응용 or 2씩 증가
+  Q3. 좌변을 고정을 하고 우변을 1씩 증가
+  Q4. 
+  방법1.   wrap.append('<p>' + (단수) + '</p>') // 1단, 2단, 3단, ...
+    while 단수
+    for 우변 ++
+
+    반복문이 돌때마다 append로 태그를 넣어주기 때문에 dom에 접근하게 됨 -> 성능 저하
+
+
+  방법2. 배열 이용 -> 추천이유 : 배열에 내용을 다 넣어놓고 한꺼번에 꺼냄. 때문에 dom에 한번 접근 -> 성능이 더 좋음
+
+  배열 안에 단수(ul)과 단 내용들(li)을 push로 넣음
+
+   배열 안의 값을 join으로 문자열로 만듦
+
+   그 문자열을 해서 배열.get(0).innerHTML 으로 객체화
+   * 체크할 것
+   배열 변수 : jquery 변수
+   get(0) : jquery 메서드
+   innerHTML : 자바스크립트 메서드
+</pre>
+</body>
+</html>

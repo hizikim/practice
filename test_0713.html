@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<pre>
+	정의, 사용 방법 예시, 어떤 때에 사용하는지
+
+</pre>
+</body>
+<script type="text/javascript">
+var foo = {
+	name : 'fooname',
+	age : 40
+};
+  console.log(foo);
+  console.log(foo.name);
+  console.log(foo.box);							// undefined
+  console.log(foo.toString()); 			//object Object
+  console.dir(Object.prototype);		// Object
+  console.dir(Array.prototype);			// Array(0)
+  console.dir(Function.prototype);	// function anonymous()
+
+  console.log('=====================');
+
+  console.log(1+2);
+  console.log(1-2);
+  console.log(1*2);
+  console.log(1/2);
+  console.log(1%2);
+  console.log('S'+2);
+  console.log(1+2+'S'+2);
+
+  console.log('=====================');
+
+  console.log(1<2);
+  console.log(1>=2);
+  console.log(1==2);
+  console.log(1!=2);
+
+  console.log('=====================');
+  var x = 12;
+ 	var a = b = c = 12;
+
+
+  console.log('=====================');
+  if ( 10 < 9 && 9 < 10){
+  	console.log('aaa')	// 콘솔 안찍힘
+  }
+  if ( 10 < 9 || 9 < 10){
+  	console.log('bbb')
+  }
+
+  var time = 0;
+  console.log(time);
+  time ++;
+  console.log(time);
+
+  var varia = (3<9) ? true : false; // 조건 ? 참일때 반환 : 거짓일 때 반환
+  console.log(varia);
+
+</script>
+</html>

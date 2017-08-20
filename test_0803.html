@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="all">
+<script src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<pre>
+콜백함수 : 이벤트가 일어난 후에 실행되는 함수
+
+var on = function(evtType, d, callBack){
+		case 'click':
+
+		//마우스 좌표 확인, 버튼 위치랑 맞는지 복
+
+		var evt = {pos:1, data:d, aa:3};
+
+		callBack( evt );
+
+
+	}
+	this.labels[i].on('click', i ,$.proxy(this.onSelectFunc, this));
+
+과제~~~~~~~~~~~~~~~~~``
+
+1. 선텍한 인덱스를 제외한 둘중에서 하나가 랜덤으로 내려오는거
+		1번을 선택하면 2,3중에 하나가 내려옴
+
+2. 선택한 인덱스가 내려오는거
+
+두 타입을 각각 선언했을 떄 true/false 플래그로 선언해서 타입 뽑게 
+
+
+
+라디오 버튼을 선택하지 않은채로 버튼을 누ㄹ르면 
+곰을 선택해주세요 얼럿
+얼럿이 뜨면 당연히 이벤트 실행이 안되어야지
+
+선택하고 이벤트가 실행되면 또 실행될 수 없음. 버튼을 누르면 무조건 이벤트는 한번만
+이미 참여하셨습니다. 얼럿
+
+=== 선택여부 검사하는 플래그 필요 (joinEvent)
+처음 로딩될때 초기값 false
+곰을 클릭하면 true 
+곰을 클릭하지 않고 버튼을 누르면 ? false
+곰을 클릭하고 버튼을 누르면 ? true
+이벤트가 다 일어나면 false로 바꿔주고 
+그 상태에서 버튼 클릭하면 참여했습니다 얼럿 뜨게
+
+메소드 종류
+옵션값들 저장
+곰 클릭
+버튼 클릭
+움직이는거
+클래스 추가하는거
+
+
+
+
+한페이지로
+
+animate 콜백함수 사용
+easing 스피드 가속도
+callback 이벤트가 일어난 뒤에 불러올 함수가 있다면 기입
+scrolltop 스크롤 이동하는 js 속성
+$('html, body').animate({
+	scrollTop : '400'
+}, 400)
+
+
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="all">
+<script src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+<pre>
+과제 피드백
+선택된 인덱스를 자르고
+나머지만 랜덤 돌리는 방식으로 변경
+
+this 바인딩
+1. var _this = this;
+2. 프록시로 this받아옴
+
+
+과제 설명
+닫기버튼, 레이어 딤드부분을 클릭해도 레이어 닫히게
+- jquery.ba-outside-events.min.js
+- 버튼 클릭하고 레이어가 뜨면 일정시간 시간차를 두고 outside 실행 (onclickFunc에 setTimeout을 이용해서 설정)
+- 레이어가 꺼지면 레이어에 걸려있는 clickoutside off(on의 반대) 
+- 레이어 꺼지면 원래 버튼으로 포커스 받게
+-- 버튼이 여러개 있어도 클릭한 버튼으로 포커스 받게
+
+레이어 안에서 닫기를 누르기 전까지 포커스 돌도록
+- 탭/쉬프트+탭 을 눌렀을때 키값을 바꿔주는 방법이 있지만 비추
+- 레이어 앞뒤에 가상의 태그를 tabindex="0"으로 넣고 어디에 포커스가 왔냐에 따라 레이어에 포커스를 돌리는 방식으로
+var 태그 = '<span style="어쩌구저쩌구"></span>'
+layer.before(태그);		// 버튼 클릭시 첫번째 포커스 받는애
+layer.after(태그);		
+
+
+
+on('click mouseenter')
+
+if (e.type === 'click'){
+	dsfjldskfjlaskdj
+} else if (e.type === 'mouseenter'){
+	sdkjflsdkjflskdjfl
+}
+반드시 써있는 속성과 전부 매칭시켜줘야함
+
+
+
+e.target
+-- 가장 상위에 있는 애
+e.currentTarget 
+-- 이벤트가 걸린 요소(this). on에 걸린 선택자
+
+</pre>
+</body>
+</html>

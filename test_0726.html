@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="all">
+<script src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+var testFunc = function(){
+	console.log(this); // 전역 객체(최상위 객체)인 window를 출력
+	return 10;
+}
+// testFunc();	
+console.log(testFunc());	
+// new testFunc();
+console.log(new testFunc());
+
+			// var obj = {
+			// 	thisIs: this,
+			// 	init:function(){
+			// 		console.log(this);
+			// 	}
+			// }
+			// console.log(obj.thisIs);
+
+			// obj.init();
+
+
+// var obj = {
+//    init : function () {
+//    		this.setElements();				// setElements 함수를 호출해봐요~
+//    },
+//    setElements : function () {
+//       console.log('call');
+//    }
+// };
+// obj.init();
+
+// var obj = {
+//    init : function () {
+//       // 객체 obj2 의 init 을 호출해봐요~
+//       obj2.init();
+//    }
+// };
+// var obj2 = {
+//    init : function () {
+//       console.log('call');
+//    }
+// };
+// obj.init();
+
+// var obj = {
+//    func : function () {
+//       console.log('func');
+//    },
+//    num : 3,
+//    str : 'kyhim',
+//    arr : ['황금올리브','굽네오리지널','허니콤보'],
+//    und : undefined,
+//    nothing : null,
+//    o : {name:'치즈스노윙',price:16000}
+// };
+
+// console.log(obj.func);
+// console.log(obj.num);
+// console.log(obj.str);
+// console.log(obj.arr);
+// console.log(obj.und);
+// console.log(obj.nothing);
+// console.log(obj.o);
+
+</script>
+</head>
+<body>
+</body>
+</html>

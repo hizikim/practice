@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="all">
+<script src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+  var num1 = window.prompt('첫번째 숫자값을 입력'); // 윈도우 입력창 생성
+  var op = window.prompt('사칙연산자 중 하나를 입력')
+  var num2 = window.prompt('두번째 숫자값을 입력')
+  var result;
+
+  num1 = parseInt(num1); // 숫자 타입으로 변환
+  num2 = parseInt(num2); // 숫자 타입으로 변환
+
+  // switch (op){
+  //   case '+' :
+  //     result = num1 + num2;
+  //     break;
+  //   case '-' :
+  //     result = num1 - num2;
+  //     break;
+  //   case '*' :
+  //     result = num1 * num2;
+  //     break;
+  //   case '/' :
+  //     result = num1 / num2;
+  //     break;
+  //   }
+
+  // if (op == '+')
+  if (op === '+')
+    result = num1 + num2;
+  else if (op === '-')
+    result = num1 - num2;
+  else if (op === '*')
+    result = num1 * num2;
+  else if (op === '/')
+    result = num1 / num2;
+  else
+    alert('연산자를 다시 확인');
+
+  console.log(num1 + op + num2 + '=' + result);
+  // $(function)(){
+
+  // }
+</script>
+</head>
+<body>
+<pre>
+  과제 설명
+  eq(n), Array.length 활용
+
+</pre>
+</body>
+<script type="text/javascript">
+  var a = 74;
+  if (a > 90)
+     console.log('수');
+  else if (a > 80)
+     console.log('우');
+  else
+     console.log('낙제');
+
+
+
+  // switch 는 비교연산자 사용 X. 값이 일치할 때만 사용 가능
+  // 주로 문자열이나 케이스가 불규칙할 때 사용
+
+  // 반복이 덜하고 값을 바로 찾아주어 성능이 더 좋을수도 있지만 사용하는 경우가 많지 않음
+
+  switch (a){
+    case 10 :
+      console.log('10');
+      break;  // 이 케이스와 일치하면 switch문 탈출
+    case 74 :
+      console.log('74');
+      break;
+    case 97 :
+      console.log('97');
+      break;
+    default :
+      console.log('default');  // 일치하는 값이 없을 경우 실행. 필수값 X
+      break;
+  }
+</script>
+</html>

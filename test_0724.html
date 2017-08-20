@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="all">
+<script src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+sum();
+// sum2();  // sum2 is not a function
+function sum(){
+	 var a = 10;
+	 var b = 20;
+	 var c = a+ b;
+	 console.log('ssss');
+};
+
+var sum2 = function(){
+	var a = 10;
+	var b = 20;
+	var c = a + b;
+	console.log('aaaaa');
+}
+sum();
+sum2();
+
+var sum3 = function(a, b){
+	var c = a + b;
+	console.log(c);
+}
+sum3(20, 30);
+
+var sum4 = function(a, b){
+	var c = a + b;
+	return c;
+	c = c - 10; // return 후에 작성한 구문은 실행되지 않음
+}
+console.log(sum4(10, 30));
+
+(function (a) {
+	console.log('이것은 즉시 실행 함수이다.' + a);
+})('test'); // 이것은 즉시 실행 함수이다.test
+
+///////////////////// 객체
+var objNames = {}; // 객체 생성
+objNames.a = 'heejin';
+objNames.b = 'female';
+objNames.c = 28;
+console.log(objNames);
+
+var obj = {
+	a : 10,
+	b : 20,
+	c : 30,
+	name : 'heejin',
+	func : function() {
+		// console.log(this);	// obj를 가리킴
+		// console.log(this.name);
+	}
+};
+console.log(obj);
+console.log(obj.func());	// undefined
+
+for (var keyName in obj){
+	// console.log(keyName);
+	// console.log(obj[keyName]);
+	console.log(keyName, obj[keyName]);
+}
+
+delete obj.a;
+console.log(obj);
+delete obj.b;
+console.log(obj);
+// var obj = {};	// 빈 객체로 overwrite
+// console.log(obj);
+console.log(obj.hasOwnProperty('name'));
+
+/////////////////////// this
+
+var myObject = {
+	name : 'JR',
+	sayName : function () {
+		console.log(this.name);
+	}
+};
+var otherObject = {
+	name : 'JH'
+};
+otherObject.sayName = myObject.sayName;
+myObject.sayName();
+otherObject.sayName();
+
+var test =  'this is test';
+console.log(window.test);
+
+var sayTest = function(){
+	console.log(this.test);
+};
+sayTest();
+console.log('---------------------------------------------');
+var value = 100;
+var valTestObj = {
+	value : 1,
+	func1 : function(){
+		this.value += 1;
+		console.log('func1');
+		console.log(this);
+		console.log('func1 value');
+		console.log(this.value);
+
+		func2 = function(){
+			this.value += 1;
+			console.log('func2');
+			console.log(this);
+			console.log('func2 value');
+			console.log(this.value);
+
+			func3 = function(){
+				this.value += 1;
+				console.log('func3');
+				console.log(this);
+				console.log('func3 value');
+				console.log(this.value);
+			}
+			func3();
+		}
+		func2();
+	}
+};
+valTestObj.func1();
+console.log('---------------------------------------------');
+var valTestObj2 = {
+	value : 1,
+	func1 : function(){
+		var _this = this; // 함수 안에서만 this를 사용하게 this 저장
+		this.value += 1;
+		console.log('func1');
+		console.log(this);
+		console.log('func1 value');
+		console.log(this.value);
+
+		func2 = function(){
+			_this.value += 1;
+			console.log('func2');
+			console.log(this);
+			console.log('func2 value');
+			console.log(_this.value);
+
+			func3 = function(){
+				_this.value += 1;
+				console.log('func3');
+				console.log(this);
+				console.log('func3 value');
+				console.log(_this.value);
+			}
+			func3();
+		}
+		func2();
+	}
+};
+valTestObj2.func1();
+console.log('---------------------------------------------');
+
+</script>
+</head>
+<body>
+<pre>
+함수 호이스팅
+정의 구문을 호출 코드 아래에 선언해도 브라우저가 먼저 읽어줌
+익명함수는 함수 호이스팅이 선언 구문 다음에 호출해야함.
+익명함수 권장. 
+
+즉시 실행 함수
+정의함과 동시에 바로 실행하는 함수
+한번 실행 후 바로 버려짐. 
+브라우저 체크. 반응형 체크 등에 사용
+(function (win, undefined){
+	
+})(window); // jQuery 형태
+
+function 함수명 (인자1, 인자2, 인자3){
+	
+}
+var 객체명 {};
+
+apply : 배열 형태
+함수명.apply(객체명, [인자1, 인자2, 인자3]);
+call : 값 하나씩
+함수명.call(인자1, 인자2, 인자3);
+</pre>
+</body>
+</html>

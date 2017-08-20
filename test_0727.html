@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="all">
+<script src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	var count = 1;
+	var gallery = function(){
+ 		console.log('다음 사진');
+ 		if (count == 5)
+ 			clearInterval(clearId);
+ 		count += 1;
+ 	};
+	// var clearId = setTimeout(gallery, 3000);
+	// var clearId = setInterval(gallery, 3000);
+
+	var arrNames = [];
+	console.log('no data');
+	console.log(arrNames.length);
+	arrNames[0] = 'string';
+	arrNames[1] = 'price';
+	arrNames[2] = 1000;
+	console.log(arrNames);
+	console.log('there are datas');
+	console.log(arrNames.length);
+	arrNames[100] = 'A';
+	console.log(arrNames.length);	// 101
+	// 사이 인덱스의 값은 undefined로 들어감
+	arrNames = []; // 초기화
+
+
+	var obj = function(){
+		// 초기에 실행해야 하는 메서드들 
+		init : function() {
+			this.setElements();
+			this.initLayout();
+			this.viewFunc();
+		}
+		// 요소 탐색
+		setElements : function() {
+			this.wrapFirst = ;
+			this.변수명 = ;
+			this.wrapFirst = ;
+		}
+		bindEvents : function() {
+			this.nextBtnFirst.on('click', $.proxy(this.onClickFunc, this));
+		} // this가 바라보는 대상 유지 : $.proxy(this.onClickFunc, this)
+		initLayout : function() {
+
+		}
+		viewFunc : function() {
+
+		}
+	}
+</script>
+</head>
+<body>
+<pre>
+setTimeout
+clearTimeout
+	스크롤 이벤트에 set하고 어느 지점에서 clear하는데 사용
+setInterval
+	슬라이드 자동으로 넘어갈 때 사용
+
+	[찾아보기]
+	대괄호표기법
+	var obj = {};
+	obj.a = 'dag';
+	==
+	obj['a'] = 'dag';
+
+	똑같이 동작됨
+
+
+
+	[과제]
+	배열 프로토타입을 이용
+
+	// 이중배열
+	var arr = [];
+	for (var i = 0; i < 5; i++){
+		arr[i] = [] ; // 5개의 배열이 들어감
+		for (var j = 0; j < 5; j++){
+			 arr[i][j] = i * j;
+		}
+	}
+
+	// 랜덤
+	for (var i = 0; i < 5; i++){
+		arr[i] = Math.floor(Math.random() * 7);	// 7까지의 수가 랜덤으로 나옴
+
+	}
+
+	문자열을 hasOwnProperty를 사용가능하게 만들고
+	그 객체의 키=문자, 키값을 변경해서 출력
+	for ( in ) 사용
+
+	// test
+		var exam2 = new Exam(1);
+	exam2.strQuestion = 'question';
+	exam2.answerCode = function(){
+		console.log(this.strQuestion);
+		//var cloneStr = this.strQuestion.slice(0);
+		
+		// 과정 풀어쓰기
+		var strToArr = this.strQuestion.split('');
+		console.log(strToArr);
+		var reverseStr = strToArr.reverse();
+		console.log(reverseStr);
+		this.strQuestion = reverseStr.join('');
+
+		// 일련의 과정을 다음과 같이 체이닝해서 쓸 수 있음
+		// var arrToStr = cloneStr.split('').reverse().join('');
+		//console.log(arrToStr);
+		
+		return this.strQuestion;
+	}
+	exam2.init();
+
+</pre>
+</body>
+</html>
